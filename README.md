@@ -74,3 +74,6 @@ Provides methods for performing Reciprocal Rank Fusion on search results.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details. 
+
+## Acknowledgments
+This project contains code ported from the python source code in [rag-fusion](https://github.com/Raudaschl/rag-fusion)). 
