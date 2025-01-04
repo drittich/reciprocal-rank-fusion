@@ -13,7 +13,7 @@ public class ReciprocalRankFusion
     /// <param name="searchResultsDict">A dictionary where the key is a query string and the value is another dictionary mapping document IDs to their scores for that query.</param>
     /// <param name="k">A constant used in the RRF formula to dampen the impact of ranks. Defaults to 60.</param>
     /// <returns>A dictionary mapping document IDs to their fused scores, sorted in descending order of scores.</returns>
-    public static Dictionary<string, double> ReciprocalRankFusionAlgorithm(Dictionary<string, Dictionary<string, double>> searchResultsDict, int k = 60)
+    public static Dictionary<string, double> FuseSearchResults(Dictionary<string, Dictionary<string, double>> searchResultsDict, int k = 60)
     {
         Dictionary<string, double> fusedScores = new Dictionary<string, double>();
         Console.WriteLine("Initial individual search result ranks:");
