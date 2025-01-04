@@ -1,11 +1,13 @@
-# Reciprocal Rank Fusion Algorithm
+# drittich.ReciprocalRankFusion
 
-This project provides an implementation of the Reciprocal Rank Fusion (RRF) algorithm in C#. The RRF algorithm is used to combine search results from multiple sources, taking into account the ranks of documents to produce a fused ranking.
+This package provides an implementation of the Reciprocal Rank Fusion (RRF) algorithm in C#. The RRF algorithm is used to combine search results from multiple sources, taking into account the ranks of documents to produce a fused ranking.
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Usage](#usage)
+  - [Installation](#installation)
+  - [Basic Usage](#basic-usage)
 - [Example](#example)
 - [Choosing the k Parameter](#choosing-the-k-parameter)
   - [For 1 to 10 Search Results](#for-1-to-10-search-results)
@@ -19,28 +21,66 @@ Reciprocal Rank Fusion (RRF) is a simple yet effective method for merging ranked
 
 ## Usage
 
-To use the RRF algorithm, you need to call the `FuseSearchResults` method from the `ReciprocalRankFusion` class. This method takes a dictionary of search results and an optional parameter `k` to control the impact of ranks.
+### Installation
 
-### Method Signature
+You can install the `drittich.ReciprocalRankFusion` NuGet package using the NuGet Package Manager or the .NET CLI.
 
-```csharp
-public static Dictionary<string, double> FuseSearchResults(
-    Dictionary<string, Dictionary<string, double>> searchResultsDict, 
-    int k = 60)
+#### Using the NuGet Package Manager
+
+1. Open your project in Visual Studio.
+2. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**.
+3. In the **Browse** tab, search for `drittich.ReciprocalRankFusion`.
+4. Select the package from the search results and click **Install**.
+
+#### Using the .NET CLI
+
+Run the following command in your terminal:
+
+```bash
+dotnet add package drittich.ReciprocalRankFusion
 ```
 
-### Parameters
+### Basic Usage
 
-- **`searchResultsDict`**: A dictionary where the key is a query string and the value is another dictionary mapping document IDs to their scores for that query.
-- **`k`**: A constant used in the RRF formula to dampen the impact of ranks. Defaults to 60.
+After installing the package, you can use the `ReciprocalRankFusion` class to fuse your search results.
 
-### Returns
+```csharp
+using drittich.ReciprocalRankFusion;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-A dictionary mapping document IDs to their fused scores, sorted in descending order of scores.
+class Program
+{
+    static void Main(string[] args)
+    {
+        // sample search results
+        var searchResultsDict = new Dictionary<string, Dictionary<string, double>>
+        {
+            { "query1", new Dictionary<string, double> { 
+                { "doc1", 3.0 }, 
+                { "doc2", 1.5 }, 
+                { "doc3", 2.0 } 
+            }},
+            { "query2", new Dictionary<string, double> { 
+                { "doc4", 2.5 }, 
+                { "doc5", 3.5 }, 
+                { "doc6", 1.0 } 
+            }}
+        };
+
+        var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict);
+        foreach (var result in fusedResults)
+        {
+            Console.WriteLine($"Document: {result.Key}, Score: {result.Value}");
+        }
+    }
+}
+```
 
 ## Example
 
-Here is an example of how to use the FuseSearchResults method:
+Here is an example of how to use the `FuseSearchResults` method:
 
 ```csharp
 using drittich.ReciprocalRankFusion;
@@ -59,8 +99,7 @@ var searchResultsDict = new Dictionary<string, Dictionary<string, double>>
     }}
 };
 
-var fuser = new SearchResultFuser();
-var fusedResults = fuser.FuseSearchResults(searchResultsDict);
+var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict);
 var top100Results = fusedResults
     .Take(100)
     .ToDictionary(x => x.Key, x => x.Value);
@@ -94,9 +133,7 @@ When your goal is to retrieve a **small set of highly relevant results (1 to 10)
 **Example Usage:**
 
 ```csharp
-var fuser = new SearchResultFuser();
-int k = 10; // Suitable for retrieving top 1-10 results
-var fusedResults = fuser.FuseSearchResults(searchResultsDict, k);
+var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict, k: 10);
 
 // Extract the top 10 results
 var top10Results = fusedResults.Take(10).ToDictionary(x => x.Key, x => x.Value);
@@ -122,9 +159,7 @@ When you aim to retrieve a **larger set of results (up to 100)** while ensuring 
 **Example Usage:**
 
 ```csharp
-var fuser = new SearchResultFuser();
-int k = 40; // Suitable for retrieving up to 100 results with top 10 highly relevant
-var fusedResults = fuser.FuseSearchResults(searchResultsDict, k);
+var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict, k: 40);
 
 // Extract the top 100 results
 var top100Results = fusedResults.Take(100).ToDictionary(x => x.Key, x => x.Value);
@@ -143,4 +178,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Acknowledgments
 
-This project contains code ported from the python source code in [rag-fusion](https://github.com/Raudaschl/rag-fusion)).
+This project contains code ported from the python source code in [rag-fusion](https://github.com/Raudaschl/rag-fusion).
