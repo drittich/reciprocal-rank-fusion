@@ -1,31 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>drittich.ReciprocalRankFusion</Title>
-    <Authors>D'Arcy Rittich</Authors>
-    <Description>An implementation of Reciprocal Rank Fusion (RRF) for merging search results</Description>
-    <Copyright>2025 D'Arcy Rittich</Copyright>
-    <PackageProjectUrl>https://github.com/drittich/reciprocal-rank-fusion</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/drittich/reciprocal-rank-fusion</RepositoryUrl>
-    <PackageTags>ai;llm;gpt;chat-gpt;search;rrf;reciprocal-rank-fusion</PackageTags>
-    <PackageReleaseNotes>Initial package release</PackageReleaseNotes>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageId>drittich.ReciprocalRankFusion</PackageId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Version>1.0.1</Version>
+		<Title>drittich.ReciprocalRankFusion</Title>
+		<Authors>D'Arcy Rittich</Authors>
+		<Description>An implementation of Reciprocal Rank Fusion (RRF) for merging search results</Description>
+		<Copyright>2025 D'Arcy Rittich</Copyright>
+		<PackageProjectUrl>https://github.com/drittich/reciprocal-rank-fusion</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/drittich/reciprocal-rank-fusion</RepositoryUrl>
+		<PackageTags>ai;llm;gpt;chat-gpt;search;rrf;reciprocal-rank-fusion</PackageTags>
+		<PackageReleaseNotes>Initial package release</PackageReleaseNotes>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageId>drittich.ReciprocalRankFusion</PackageId>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
