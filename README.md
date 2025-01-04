@@ -8,7 +8,7 @@ This package provides an implementation of the Reciprocal Rank Fusion (RRF) algo
 - [Usage](#usage)
   - [Installation](#installation)
   - [Basic Usage](#basic-usage)
-- [Example](#example)
+- [Complete Example](#complete-example)
 - [Choosing the k Parameter](#choosing-the-k-parameter)
   - [For 1 to 10 Search Results](#for-1-to-10-search-results)
   - [For Up to 100 Search Results with Highly Relevant Top 10](#for-up-to-100-search-results-with-highly-relevant-top-10)
