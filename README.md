@@ -85,6 +85,17 @@ foreach (var result in fusedResults)
 {
     Console.WriteLine($"Document: {result.Key}, Score: {result.Value}");
 }
+
+/*
+Output:
+
+Document: doc1, Score: 0.016666666666666666
+Document: doc5, Score: 0.016666666666666666
+Document: doc3, Score: 0.01639344262295082
+Document: doc4, Score: 0.01639344262295082
+Document: doc2, Score: 0.016129032258064516
+Document: doc6, Score: 0.016129032258064516
+*/
 ```
 
 ## Choosing the k Parameter
