@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReciprocalRankFusion", "ReciprocalRankFusion\ReciprocalRankFusion.csproj", "{5856D35C-5FA0-4E8F-B1CC-9410C51D38F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{179BF5A8-3939-44B2-9080-FDF32EBA2363}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5856D35C-5FA0-4E8F-B1CC-9410C51D38F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5856D35C-5FA0-4E8F-B1CC-9410C51D38F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5856D35C-5FA0-4E8F-B1CC-9410C51D38F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5856D35C-5FA0-4E8F-B1CC-9410C51D38F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{179BF5A8-3939-44B2-9080-FDF32EBA2363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{179BF5A8-3939-44B2-9080-FDF32EBA2363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{179BF5A8-3939-44B2-9080-FDF32EBA2363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{179BF5A8-3939-44B2-9080-FDF32EBA2363}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

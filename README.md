@@ -43,6 +43,8 @@ A dictionary mapping document IDs to their fused scores, sorted in descending or
 Here is an example of how to use the FuseSearchResults method:
 
 ```csharp
+using drittich.ReciprocalRankFusion;
+
 var searchResultsDict = new Dictionary<string, Dictionary<string, double>>
 {
     { "query1", new Dictionary<string, double> { 
@@ -57,7 +59,8 @@ var searchResultsDict = new Dictionary<string, Dictionary<string, double>>
     }}
 };
 
-var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict);
+var fuser = new SearchResultFuser();
+var fusedResults = fuser.FuseSearchResults(searchResultsDict);
 var top100Results = fusedResults
     .Take(100)
     .ToDictionary(x => x.Key, x => x.Value);
@@ -91,8 +94,9 @@ When your goal is to retrieve a **small set of highly relevant results (1 to 10)
 **Example Usage:**
 
 ```csharp
+var fuser = new SearchResultFuser();
 int k = 10; // Suitable for retrieving top 1-10 results
-var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict, k);
+var fusedResults = fuser.FuseSearchResults(searchResultsDict, k);
 
 // Extract the top 10 results
 var top10Results = fusedResults.Take(10).ToDictionary(x => x.Key, x => x.Value);
@@ -118,8 +122,9 @@ When you aim to retrieve a **larger set of results (up to 100)** while ensuring 
 **Example Usage:**
 
 ```csharp
+var fuser = new SearchResultFuser();
 int k = 40; // Suitable for retrieving up to 100 results with top 10 highly relevant
-var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict, k);
+var fusedResults = fuser.FuseSearchResults(searchResultsDict, k);
 
 // Extract the top 100 results
 var top100Results = fusedResults.Take(100).ToDictionary(x => x.Key, x => x.Value);
