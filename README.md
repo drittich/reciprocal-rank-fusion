@@ -45,14 +45,12 @@ dotnet add package drittich.ReciprocalRankFusion
 After installing the package, you can use the `ReciprocalRankFusion` class to fuse your search results.
 
 ```csharp
-        var searchResultsDict = ...
+var searchResultsDict = ...
 
-        var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict);
-        foreach (var result in fusedResults)
-        {
-            Console.WriteLine($"Document: {result.Key}, Score: {result.Value}");
-        }
-    }
+var fusedResults = ReciprocalRankFusion.FuseSearchResults(searchResultsDict);
+foreach (var result in fusedResults)
+{
+    Console.WriteLine($"Document: {result.Key}, Score: {result.Value}");
 }
 ```
 
